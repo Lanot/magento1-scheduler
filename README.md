@@ -1,4 +1,4 @@
-# magento1-scheduler
+# Lanot_Scheduler
 
 This extension allow you to manage existing and custom cron tasks from Magento admin panel without development.
 
