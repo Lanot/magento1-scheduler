@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+    <modules>
+        <Lanot_Scheduler>
+            <version>1.0.0</version>
+        </Lanot_Scheduler>
+    </modules>
+
+    <global>
+        <helpers>
+            <lanot_scheduler>
+                <class>Lanot_Scheduler_Helper</class>
+            </lanot_scheduler>
+        </helpers>
+
+        <blocks>
+            <lanot_scheduler>
+                <class>Lanot_Scheduler_Block</class>
+            </lanot_scheduler>
+        </blocks>
+
+        <models>
+            <lanot_scheduler>
+                <class>Lanot_Scheduler_Model</class>
+                <resourceModel>lanot_scheduler_resource</resourceModel>
+            </lanot_scheduler>
+            <lanot_scheduler_resource>
+                <class>Lanot_Scheduler_Model_Mysql4</class>
+                <entities>
+                    <job><table>lanot_scheduler_job</table></job>
+                    <type><table>lanot_scheduler_job_type</table></type>
+                </entities>
+            </lanot_scheduler_resource>
+        </models>
+
+        <resources>
+            <lanot_scheduler_setup>
+                <setup>
+                    <module>Lanot_Scheduler</module>
+                </setup>
+            </lanot_scheduler_setup>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <lanot_scheduler>
+                    <file>lanot_scheduler.xml</file>
+                </lanot_scheduler>
+            </updates>
+        </layout>
+
+        <events>
+            <systemjob_lanot_grid_prepare_collection>
+                <observers>
+                    <lanot_scheduler>
+                        <class>lanot_scheduler/observer</class>
+                        <method>prepareSystemJobsCollection</method>
+                    </lanot_scheduler>
+                </observers>
+            </systemjob_lanot_grid_prepare_collection>
+        </events>
+
+        <!-- translations -->
+        <translate>
+            <modules>
+                <Lanot_Scheduler>
+                    <files>
+                        <default>Lanot_Scheduler.csv</default>
+                    </files>
+                </Lanot_Scheduler>
+            </modules>
+        </translate>
+        <!-- translations -->
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <lanot_scheduler>
+                <use>admin</use>
+                <args>
+                    <module>Lanot_Scheduler</module>
+                    <frontName>lanot_scheduler</frontName>
+                </args>
+            </lanot_scheduler>
+        </routers>
+    </admin>
+
+    <default>
+        <lanot_scheduler>
+            <settings>
+                <enabled_cache_clean>1</enabled_cache_clean>
+                <enabled_queue_clean>1</enabled_queue_clean>
+                <enabled_queue_generation>1</enabled_queue_generation>
+            </settings>
+        </lanot_scheduler>
+    </default>
+</config>

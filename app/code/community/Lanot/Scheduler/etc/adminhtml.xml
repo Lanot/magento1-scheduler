@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config>
+    <!--/MENU -->
+    <menu>
+        <lanot translate="title">
+            <title>Lanot</title>
+            <sort_order>65</sort_order>
+            <children>
+                <lanot_scheduler translate="title" module="lanot_scheduler">
+                    <title>Scheduler</title>
+                    <sort_order>150</sort_order>
+                    <children>
+                        <manage_jobs translate="title" module="lanot_scheduler">
+                            <title>Manage Custom Cron Jobs</title>
+                            <action>lanot_scheduler/adminhtml_job</action>
+                            <sort_order>10</sort_order>
+                        </manage_jobs>
+                        <view_systemjobs translate="title" module="lanot_scheduler">
+                            <title>View System Cron Jobs</title>
+                            <action>lanot_scheduler/adminhtml_systemjob</action>
+                            <sort_order>20</sort_order>
+                        </view_systemjobs>
+                        <view_queue translate="title" module="lanot_scheduler">
+                            <title>View Cron Queue</title>
+                            <action>lanot_scheduler/adminhtml_queue</action>
+                            <sort_order>30</sort_order>
+                        </view_queue>
+                    </children>
+                </lanot_scheduler>
+            </children>
+        </lanot>
+    </menu>
+    <!--/MENU -->
+
+    <!--ACL -->
+    <acl>
+        <resources>
+            <admin>
+                <children>
+
+                    <lanot>
+                        <title>Lanot</title>
+                        <sort_order>65</sort_order>
+                        <children>
+                            <lanot_scheduler translate="title" module="lanot_scheduler">
+                                <title>Scheduler</title>
+                                <sort_order>150</sort_order>
+                                <children>
+                                    <manage_jobs translate="title" module="lanot_scheduler">
+                                        <title>Manage Custom Cron Jobs</title>
+                                        <sort_order>10</sort_order>
+                                    </manage_jobs>
+                                    <view_systemjobs translate="title" module="lanot_scheduler">
+                                        <title>View System Cron Jobs</title>
+                                        <sort_order>20</sort_order>
+                                    </view_systemjobs>
+                                    <view_queue translate="title" module="lanot_scheduler">
+                                        <title>Manage Cron Queue</title>
+                                        <sort_order>30</sort_order>
+                                    </view_queue>
+                                </children>
+                            </lanot_scheduler>
+                        </children>
+                    </lanot>
+
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <lanot_scheduler translate="title" module="lanot_scheduler">
+                                        <title>Lanot Scheduler Configuration</title>
+                                    </lanot_scheduler>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <!--/ACL -->
+</config>

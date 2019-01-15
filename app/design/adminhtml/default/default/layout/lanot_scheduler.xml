@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento backend layout
+ *
+ * @author Lanot
+ */
+-->
+<layout>
+    <lanot_scheduler_adminhtml_job_index>
+        <reference name="content">
+            <block type="lanot_scheduler/adminhtml_job" name="lanot_scheduler_job" />
+        </reference>
+    </lanot_scheduler_adminhtml_job_index>
+
+    <lanot_scheduler_adminhtml_job_grid>
+        <block type="lanot_scheduler/adminhtml_job_grid" name="root"/>
+    </lanot_scheduler_adminhtml_job_grid>
+
+    <lanot_scheduler_adminhtml_systemjob_index>
+        <reference name="content">
+            <block type="lanot_scheduler/adminhtml_systemjob" name="lanot_scheduler_systemjob" />
+        </reference>
+    </lanot_scheduler_adminhtml_systemjob_index>
+
+    <lanot_scheduler_adminhtml_systemjob_grid>
+        <block type="lanot_scheduler/adminhtml_systemjob_grid" name="root"/>
+    </lanot_scheduler_adminhtml_systemjob_grid>
+
+    <!-- CRON JOB EDIT PAGE -->
+    <lanot_scheduler_adminhtml_job_edit>
+        <update handle="lanot_lightbox"/>
+        <reference name="content">
+            <block type="lanot_scheduler/adminhtml_job_edit" name="lanot_scheduler_job_edit" />
+        </reference>
+        <reference name="left">
+            <block type="lanot_scheduler/adminhtml_job_edit_tabs" name="job_edit_tabs">
+                <action method="addTab">
+                    <name>job_main_info</name>
+                    <block>lanot_scheduler/adminhtml_job_edit_tab_main</block>
+                </action>
+            </block>
+        </reference>
+    </lanot_scheduler_adminhtml_job_edit>
+    <!-- /CRON JOB EDIT PAGE -->
+
+    <lanot_scheduler_adminhtml_queue_index>
+        <reference name="content">
+            <block type="lanot_scheduler/adminhtml_queue" name="lanot_scheduler_queue" />
+        </reference>
+    </lanot_scheduler_adminhtml_queue_index>
+
+    <lanot_scheduler_adminhtml_queue_grid>
+        <block type="lanot_scheduler/adminhtml_queue_grid" name="root"/>
+    </lanot_scheduler_adminhtml_queue_grid>
+
+    <lanot_scheduler_adminhtml_queue_view>
+        <reference name="content">
+            <block type="lanot_scheduler/adminhtml_queue_view" name="job_edit_main"/>
+        </reference>
+    </lanot_scheduler_adminhtml_queue_view>
+</layout>

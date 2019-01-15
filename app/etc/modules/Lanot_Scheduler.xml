@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Lanot_Scheduler>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Cron />
+                <Mage_Adminhtml />
+            </depends>
+        </Lanot_Scheduler>
+    </modules>
+</config>
